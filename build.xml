@@ -1,6 +1,12 @@
 <project name="Sample usage of Salesforce Ant tasks" default="test" basedir="." xmlns:sf="antlib:com.salesforce">
 
-    <property file="build/build.properties"/>
+    <property environment="env"/>
+    <property name="sf.username" value="${env.SF_USERNAME}"/>
+    <property name="sf.password" value="${env.SF_PASSWORD}"/>
+    <property name="sf.maxPoll" value="${env.SF_MAX_POLL}"/>
+    <property name="sf.serverurl" value="${env.SERVER_URL}"/>
+
+    <echo>CI build...</echo>
 
     <taskdef resource="com/salesforce/antlib.xml" uri="antlib:com.salesforce">
         <classpath>
@@ -13,16 +19,30 @@
             username="${sf.username}"
             password="${sf.password}"
             serverurl="${sf.serverurl}"
-            retrieveTarget="../src"
-            unpackaged="../src/package.xml"/>
+            retrieveTarget="src"
+            unpackaged="src/package.xml"/>
     </target>
 
     <target name="deployCodeCheckOnly">
+        <echo>Begin cheking deploy</echo>
         <sf:deploy username="${sf.username}"
             password="${sf.password}"
             serverurl="${sf.serverurl}"
             maxPoll="${sf.maxPoll}"
             deployRoot="src"
             checkOnly="true"/>
+        <echo>End checking deploy</echo>
+    </target>
+
+    <target name="deployWithTests">
+        <echo>Begin deploy</echo>
+        <sf:deploy username="${sf.username}"
+            password="${sf.password}"
+            serverurl="${sf.serverurl}"
+            maxPoll="${sf.maxPoll}"
+            deployRoot="src"
+            rollbackOnError="true"
+            testlevel="RunLocalTests" />
+        <echo>End deploy</echo>
     </target>
 </project>
