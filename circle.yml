@@ -1,0 +1,14 @@
+machine:
+  java:
+    version: oraclejdk8
+test:
+  override:
+    - ant deployCodeCheckOnly:
+        timeout: 600
+
+deployment:
+    release:
+        branch: master
+        commands:
+            - ant deployWithTests:
+                timeout: 600
