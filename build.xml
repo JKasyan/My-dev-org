@@ -1,6 +1,9 @@
 <project name="Sample usage of Salesforce Ant tasks" default="test" basedir="." xmlns:sf="antlib:com.salesforce">
 
-    <property file="build/build.properties"/>
+    <property environment="env"/>
+    <property name="sf.username" value="${env.SF_USERNAME}"/>
+    <property name="sf.password" value="${env.SF_PASSWORD}"/>
+    <property name="sf.maxPoll" value="${env.SF_MAX_POLL}"/>
 
     <echo>CI build...</echo>
 
