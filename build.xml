@@ -20,11 +20,13 @@
     </target>
 
     <target name="deployCodeCheckOnly">
+        <echo>Begin deploy</echo>
         <sf:deploy username="${sf.username}"
             password="${sf.password}"
             serverurl="${sf.serverurl}"
             maxPoll="${sf.maxPoll}"
             deployRoot="src"
             checkOnly="true"/>
+        <echo>End deploy</echo>
     </target>
 </project>
