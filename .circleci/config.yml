@@ -1,4 +1,4 @@
-version: 2.0
+version: 2
 
 general:
     branches:
@@ -6,20 +6,10 @@ general:
         - master
         - dev
 
-machine:
-    java:
-        version: oraclejdk8
-
-build:
-    - ant deployCodeCheckOnly
-# test:
-#     override:
-#         - ant deployCodeCheckOnly
-#             timeout: 600
-# machine:
-#   java:
-#     version: oraclejdk8
-# test:
-#   override:
-#     - ant -lib lib/ Build:
-#         timeout: 600
+jobs:
+    build:
+        machine:
+            java:
+                version: oraclejdk8
+        steps:
+            - ant deployCodeCheckOnly
