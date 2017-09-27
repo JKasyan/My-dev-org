@@ -24,13 +24,25 @@
     </target>
 
     <target name="deployCodeCheckOnly">
-        <echo>Begin deploy</echo>
+        <echo>Begin cheking deploy</echo>
         <sf:deploy username="${sf.username}"
             password="${sf.password}"
             serverurl="${sf.serverurl}"
             maxPoll="${sf.maxPoll}"
             deployRoot="src"
             checkOnly="true"/>
+        <echo>End checking deploy</echo>
+    </target>
+
+    <target name="deployWithTests">
+        <echo>Begin deploy</echo>
+        <sf:deploy username="${sf.username}"
+            password="${sf.password}"
+            serverurl="${sf.serverurl}"
+            maxPoll="${sf.maxPoll}"
+            deployRoot="src"
+            rollbackOnError="true"
+            testlevel="RunLocalTests">
         <echo>End deploy</echo>
     </target>
 </project>
