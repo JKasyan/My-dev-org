@@ -1,10 +1,10 @@
 <project name="Sample usage of Salesforce Ant tasks" default="test" basedir="." xmlns:sf="antlib:com.salesforce">
 
-    <property file="build.properties"/>
+    <property file="build/build.properties"/>
 
     <taskdef resource="com/salesforce/antlib.xml" uri="antlib:com.salesforce">
         <classpath>
-            <pathelement location="./ant-salesforce.jar" />
+            <pathelement location="build/ant-salesforce.jar" />
         </classpath>
     </taskdef>
 
@@ -15,5 +15,14 @@
             serverurl="${sf.serverurl}"
             retrieveTarget="../src"
             unpackaged="../src/package.xml"/>
+    </target>
+
+    <target name="deployCodeCheckOnly">
+        <sf:deploy username="${sf.username}"
+            password="${sf.password}"
+            serverurl="${sf.serverurl}"
+            maxPoll="${sf.maxPoll}"
+            deployRoot="src"
+            checkOnly="true"/>
     </target>
 </project>

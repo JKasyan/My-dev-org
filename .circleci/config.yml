@@ -1,8 +1,7 @@
 version: 2.0
 
+java:
+  version: openjdk7
 jobs:
     build:
-        ant:
-            - image: circleci/<language>:<version TAG>
-        steps:
-            - run: echo "hello world"
+        - ant deployCodeCheckOnly
