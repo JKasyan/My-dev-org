@@ -9,12 +9,13 @@ general:
 machine:
     java:
         version: oraclejdk8
-test:
-    override:
-        - ant deployCodeCheckOnly
-            timeout: 600
 
-
+build:
+    - ant deployCodeCheckOnly
+# test:
+#     override:
+#         - ant deployCodeCheckOnly
+#             timeout: 600
 # machine:
 #   java:
 #     version: oraclejdk8
