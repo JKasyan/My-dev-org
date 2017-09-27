@@ -42,7 +42,7 @@
             maxPoll="${sf.maxPoll}"
             deployRoot="src"
             rollbackOnError="true"
-            testlevel="RunLocalTests">
+            testlevel="RunLocalTests" />
         <echo>End deploy</echo>
     </target>
 </project>
