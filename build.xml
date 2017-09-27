@@ -2,6 +2,8 @@
 
     <property file="build/build.properties"/>
 
+    <echo>CI build...</echo>
+
     <taskdef resource="com/salesforce/antlib.xml" uri="antlib:com.salesforce">
         <classpath>
             <pathelement location="build/ant-salesforce.jar" />
