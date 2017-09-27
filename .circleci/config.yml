@@ -1,8 +1,8 @@
 version: 2.0
 
 machine:
-  java:
-    version: oraclejdk8
+    java:
+        version: oraclejdk8
 test:
     override:
         - ant deployCodeCheckOnly
