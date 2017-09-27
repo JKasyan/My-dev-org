@@ -4,6 +4,7 @@
     <property name="sf.username" value="${env.SF_USERNAME}"/>
     <property name="sf.password" value="${env.SF_PASSWORD}"/>
     <property name="sf.maxPoll" value="${env.SF_MAX_POLL}"/>
+    <property name="sf.serverurl" value="${env.SERVER_URL}"/>
 
     <echo>CI build...</echo>
 
